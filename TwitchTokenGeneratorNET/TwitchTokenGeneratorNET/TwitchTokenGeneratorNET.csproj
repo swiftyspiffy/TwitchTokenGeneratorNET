@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>swiftyspiffy</Authors>
+    <Copyright>swiftyspiffy</Copyright>
+    <Owners>swiftyspiffy</Owners>
+    <PackageProjectUrl>https://github.com/swiftyspiffy/TwitchTokenGeneratorNET</PackageProjectUrl>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <Summary>Interact with TwitchTokenGenerator programmatically</Summary>
+    <PackageTags>twitch token generator oauth access refresh api cli library</PackageTags>
+    <Title>TwitchTokenGeneratorNET</Title>
+    <Description>This library supports programmatically calling CreateAuthWorkflow, CreateQuickLink, CreateRequest, ForgotToken, GetAuthWorkflow, GetSupportedScopes, and RefreshToken when interacting with TwitchTokenGenerator.com</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\CreateAuthWorkflow\" />
+    <Folder Include="Models\ForgotToken\" />
+    <Folder Include="Models\RefreshToken\" />
+    <Folder Include="Models\CreateQuickLink\" />
+    <Folder Include="Models\CreateRequest\" />
+    <Folder Include="Models\GetSupportedScopes\" />
+    <Folder Include="Models\GetAuthWorkflow\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+</Project>
