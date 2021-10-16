@@ -7,11 +7,13 @@
     <Copyright>swiftyspiffy</Copyright>
     <Owners>swiftyspiffy</Owners>
     <PackageProjectUrl>https://github.com/swiftyspiffy/TwitchTokenGeneratorNET</PackageProjectUrl>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <PackageReleaseNotes>Support for additional args</PackageReleaseNotes>
     <Summary>Interact with TwitchTokenGenerator programmatically</Summary>
     <PackageTags>twitch token generator oauth access refresh api cli library</PackageTags>
     <Title>TwitchTokenGeneratorNET</Title>
     <Description>This library supports programmatically calling CreateAuthWorkflow, CreateQuickLink, CreateRequest, ForgotToken, GetAuthWorkflow, GetSupportedScopes, and RefreshToken when interacting with TwitchTokenGenerator.com</Description>
+    <Version>1.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

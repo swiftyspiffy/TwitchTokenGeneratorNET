@@ -20,32 +20,32 @@ namespace TwitchTokenGeneratorNET
     {
         private const string BaseUrl = "https://twitchtokengenerator.com/";
 
-        public static CreateAuthWorkflowResponse CreateAuthWorkflow(string applicationTitle, List<string> scopes)
+        public static CreateAuthWorkflowResponse CreateAuthWorkflow(string applicationTitle, List<string> scopes, string additionalArgs = "")
         {
-            return ReqGet<CreateAuthWorkflowResponse>($"api/create/{Base64Encode(applicationTitle)}/{String.Join('+', (scopes))}");
+            return ReqGet<CreateAuthWorkflowResponse>($"api/create/{Base64Encode(applicationTitle)}/{String.Join('+', (scopes))}{additionalArgs}");
         }
 
-        public static GetAuthWorkflowResponse GetAuthWorkflow(string authWorkflowId)
+        public static GetAuthWorkflowResponse GetAuthWorkflow(string authWorkflowId, string additionalArgs = "")
         {
-            return ReqGet<GetAuthWorkflowResponse>($"api/status/{authWorkflowId}");
+            return ReqGet<GetAuthWorkflowResponse>($"api/status/{authWorkflowId}{additionalArgs}");
         }
 
-        public static ForgotResponse ForgotToken(string accessToken)
+        public static ForgotResponse ForgotToken(string accessToken, string additionalArgs = "")
         {
-            return ReqGet<ForgotResponse>($"api/forgot/{accessToken}");
+            return ReqGet<ForgotResponse>($"api/forgot/{accessToken}{additionalArgs}");
         }
 
-        public static RefreshTokenResponse RefreshToken(string refreshToken)
+        public static RefreshTokenResponse RefreshToken(string refreshToken, string additionalArgs = "")
         {
-            return ReqGet<RefreshTokenResponse>($"api/refresh/{refreshToken}");
+            return ReqGet<RefreshTokenResponse>($"api/refresh/{refreshToken}{additionalArgs}");
         }
 
-        public static GetSupportedScopesResponse GetSupportedScopes()
+        public static GetSupportedScopesResponse GetSupportedScopes(string additionalArgs = "")
         {
-            return ReqGet<GetSupportedScopesResponse>("api/scopes");
+            return ReqGet<GetSupportedScopesResponse>($"api/scopes{additionalArgs}");
         }
 
-        public static CreateQuickLinkResponse CreateQuickLink(List<string> scopes, bool authenticateImmediately)
+        public static CreateQuickLinkResponse CreateQuickLink(List<string> scopes, bool authenticateImmediately, string additionalArgs = "")
         {
             var supportedScopes = GetSupportedScopes();
             var allSupportedScopes = new List<Scope>();
@@ -63,12 +63,12 @@ namespace TwitchTokenGeneratorNET
                 scopeIds.Add(supportedScope.Id.ToString());
             }
 
-            return ReqGet<CreateQuickLinkResponse>($"quick/create/{String.Join('+', scopeIds)}/{(authenticateImmediately ? "auth_auth" : "auth_stay")}");
+            return ReqGet<CreateQuickLinkResponse>($"quick/create/{String.Join('+', scopeIds)}/{(authenticateImmediately ? "auth_auth" : "auth_stay")}{additionalArgs}");
         }
 
-        public static CreateRequestResponse CreateRequest(List<string> scopes, string username, string email)
+        public static CreateRequestResponse CreateRequest(List<string> scopes, string username, string email, string additionalArgs = "")
         {
-            return ReqPost<CreateRequestResponse>("request/create.php", new Dictionary<string, string>
+            return ReqPost<CreateRequestResponse>($"request/create.php{additionalArgs}", new Dictionary<string, string>
             {
                 {
                     "scopes", String.Join('+', scopes)
